@@ -1,0 +1,12 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: zipkin_server
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false

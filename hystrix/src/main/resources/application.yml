@@ -8,15 +8,21 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
   instance:
     prefer-ip-address: true
 
-# 是否开启熔断器
 feign:
   hystrix:
-    enabled: true
+    enabled: true # 是否开启熔断器
 
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 7000 # hystrix的超时时间 要大于ribbon的超时时间，否则重试机制就没有任何意义
 management:
   endpoints:
     web:

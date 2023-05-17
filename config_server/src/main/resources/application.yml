@@ -1,14 +1,21 @@
 server:
-  port: 8762
+  port: 8888
 spring:
   application:
     name: config_server
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/shared
+        git:
+          uri: https://github.com/chenwangnatsukashii/my_springcloud.git
+          search-paths: config
+          username: 390827590@qq.com
+          password: N@wangchen123
+      label: master
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
 
 

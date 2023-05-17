@@ -18,6 +18,6 @@ public class RibbonController {
 
     @GetMapping("/findAll")
     public Collection<Student> findAll() {
-        return restTemplate.getForObject("http://provider/student/findAll", Collection.class);
+        return restTemplate.getForObject("http://eureka-client-a/student/findAll", Collection.class);
     }
 }
